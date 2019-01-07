@@ -1,1 +1,14 @@
+McWherter /Guinter
+    Start with PC setup, hold off on Vive setup until I get confirmation that we can move the furniture
 
+Kozak
+    Continue working with Pitt news, get a confirmed article
+    Let them know the VCOS of the Air Force is very interested in projects like ours, and that we may have a quote they can use
+    Get with McWherter and take pictures of setup/building the PC, offer those to the news as well
+
+Murdock/Ranalli
+    Create a hello world GUI and package into an App
+    
+
+Liszka/Oswald 
+    Implement Central bus - see architecture screenshot.  Package in App.

@@ -2,13 +2,11 @@ McWherter /Guinter
     PC and Vive Set Up, inventory tommorow.
 
 Kozak
-    Continue working with Pitt news, get a confirmed article
-    Let them know the VCOS of the Air Force is very interested in projects like ours, and that we may have a quote they can use
-    Get with McWherter and take pictures of setup/building the PC, offer those to the news as well
+    
 
 Murdock/Ranalli
-    Create a hello world GUI and package into an App
+    Create hello world gui and driver.
     
 
 Liszka/Oswald 
-    Implement Central bus - see architecture screenshot.  Package in App.
+    Implement Central bus - see architecture screenshot.  This will be the main script run by the App

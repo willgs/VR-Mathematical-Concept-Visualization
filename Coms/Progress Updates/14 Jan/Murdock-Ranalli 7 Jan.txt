@@ -1,0 +1,6 @@
+Week Of: 14 Jan 19
+Team Members: Murdock, Ranalli
+
+Progress:
+    - Initial research
+    - Getting MATLAB set up

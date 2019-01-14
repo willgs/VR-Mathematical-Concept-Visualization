@@ -1,0 +1,11 @@
+Progress Updates
+Week of: January 7th
+Team Members: Liszka, Oswald
+
+Progress: Research on what platform to base main product
+The blocking part of this project is the decision whether we use and create most of the functionality as
+a matlab add-on, or to construct our own application (through Java). Through research, we have decided
+that a matlab add-on would be the best because it is more likely that we can keep the conversion algorithm
+which is open source. Implementing this algorithm in java will likely prove to be unnecessarily difficult.
+
+Items for C/Stephenson: None

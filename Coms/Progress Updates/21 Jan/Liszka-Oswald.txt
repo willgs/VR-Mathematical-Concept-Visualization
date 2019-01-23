@@ -1,0 +1,9 @@
+Progress Updates
+Week of: January 20th
+Team Members: Liszka, Oswald
+
+Progress: Created the framework for the central bus. All methods are API methods to be used by the GUI,
+which will be the main script for this project, considering it is user-driven. Right now we are blocked on
+the implementation of the conversion algorithm
+
+Items for C/Stephenson: None

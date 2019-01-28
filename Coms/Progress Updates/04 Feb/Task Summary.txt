@@ -1,1 +1,16 @@
+Last week: None
 
+McWherter/Guinter
+    Finish PC setup and Vive this week.  I'll reach out to Mr Lange and see if he is interested in seeing our set up.
+
+Kozak
+    Work on follow up article, what time frame was he interested in?  Have you been taking pictures with C/McWherter?
+
+Murdock/Ranalli
+    Change GUi to be able to accept file paths as strings and pass them through a function.  Make sure the file paths all end in .fig
+    Create a function to read the raw data at the end of the paths.  We are reading figure files, the file paths should all end in .fig 
+
+Liszka/Oswald 
+    Work on file conversion, focus on reading isosurfaces from figure files.
+    
+Next Week: Please submit progress updates and code!

@@ -1,0 +1,8 @@
+Week Of: 4 Feb
+Team Members: Murdock, Ranalli
+
+Progress: GUI opens file explorer to select .fig file. If any other file is selected, an exception is thrown prompting user 
+to reselect file.
+
+
+Items for team or C/Stephenson: None

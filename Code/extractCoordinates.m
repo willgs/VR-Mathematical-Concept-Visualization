@@ -1,4 +1,4 @@
-function coordinateMatrix = extractCoordinates(inputFigureFile)
+function [coordinateMatrix, faces] = extractCoordinates(inputFigureFile)
 %This will take the input figure file and extract the x-y-z coordinates
 %   from the children structures of the figure file
     
@@ -26,6 +26,8 @@ switch(d.Type)
                 k=k+1;
             end
         end
+        
+        faces = delaunay(d.XData,d.YData);
         
     case 'line'
         

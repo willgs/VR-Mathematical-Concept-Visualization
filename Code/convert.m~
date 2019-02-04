@@ -26,7 +26,7 @@ material(6).data=27;
 % Make OBJ structure
 clear OBJ
 OBJ.vertices = FV.vertices;
-OBJ.vertices_normal = FV.vertices; %CHANGE BACK TO NORMALS IF CAN
+OBJ.vertices_normal = N;
 OBJ.material = material;
 OBJ.objects(1).type='g';
 OBJ.objects(1).data='skin';
@@ -46,9 +46,7 @@ comments=cell(1,4);
 comments{1}=' Produced by Matlab Write Wobj exporter ';
 comments{2}='';
 fid = fopen(fullfilename,'w');
-
 write_comment(fid,comments);
-
 if(isfield(OBJ,'material')&&~isempty(OBJ.material))
     filename_mtl=fullfile(filefolder,[filename '.mtl']);
     fprintf(fid,'mtllib %s\n',filename_mtl);
@@ -119,8 +117,86 @@ for i=1:length(OBJ.objects)
             fprintf(fid,'\n');
     end
 end
+
+
 fclose(fid);
-
-
+function write_MTL_file(filename,material)
+    fid = fopen(filename,'w');
+    comments=cell(1,2);
+    comments{1}=' Produced by Matlab Write Wobj exporter ';
+    comments{2}='';
+    write_comment(fid,comments);
+    for i=1:length(material)
+        type=material(i).type;
+        data=material(i).data;
+        switch(type)
+            case('newmtl')
+                fprintf(fid,'%s ',type);
+                fprintf(fid,'%s\n',data);
+            case{'Ka','Kd','Ks'}
+                fprintf(fid,'%s ',type);
+                fprintf(fid,'%5.5f %5.5f %5.5f\n',data);
+            case('illum')
+                fprintf(fid,'%s ',type);
+                fprintf(fid,'%d\n',data);
+            case {'Ns','Tr','d'}
+                fprintf(fid,'%s ',type);
+                fprintf(fid,'%5.5f\n',data);
+            otherwise
+                fprintf(fid,'%s ',type);
+                if(iscell(data))
+                    for j=1:length(data)
+                        if(ischar(data{j}))
+                            fprintf(fid,'%s ',data{j});
+                        else
+                            fprintf(fid,'%0.5g ',data{j});
+                        end
+                    end 
+                elseif(ischar(data))
+                    fprintf(fid,'%s ',data);
+                else
+                    for j=1:length(data)
+                        fprintf(fid,'%0.5g ',data(j));
+                    end      
+                end
+                fprintf(fid,'\n');
+        end
+    end
+end
+comments=cell(1,2);
+comments{1}='';
+comments{2}=' EOF';
+write_comment(fid,comments);
+fclose(fid);
+function write_comment(fid,comments)
+for i=1:length(comments), fprintf(fid,'# %s\n',comments{i}); end
+function write_vertices(fid,V,type)
+switch size(V,2)
+    case 1
+        for i=1:size(V,1)
+            fprintf(fid,'%s %5.5f\n', type, V(i,1));
+        end
+    case 2
+        for i=1:size(V,1)
+            fprintf(fid,'%s %5.5f %5.5f\n', type, V(i,1), V(i,2));
+        end
+    case 3
+        for i=1:size(V,1)
+            fprintf(fid,'%s %5.5f %5.5f %5.5f\n', type, V(i,1), V(i,2), V(i,3));
+        end
+    otherwise
+end
+switch(type)
+    case 'v'
+        fprintf(fid,'# %d vertices \n', size(V,1));
+    case 'vt'
+        fprintf(fid,'# %d texture verticies \n', size(V,1));
+    case 'vn'
+        fprintf(fid,'# %d normals \n', size(V,1));
+    otherwise
+        fprintf(fid,'# %d\n', size(V,1));
+        
+end
+    
 end
 

@@ -1,0 +1,7 @@
+Week Of: 4 Feb
+Team Members: Liszka, Oswald
+
+Progress: Finished end-to-end algorithm to convert figure file into object file
+
+
+Items for team or C/Stephenson: None

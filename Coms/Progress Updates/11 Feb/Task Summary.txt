@@ -1,0 +1,15 @@
+Last week: None
+
+McWherter/Guinter
+    Finish all hardware set up and installing software
+
+Kozak
+    Continue taking pictures, be sure to get some this week
+
+Murdock/Ranalli
+    Update GUI as we discussed in the meeting, add it to the central bus, ensure they are communicating correctly 
+
+Liszka/Oswald 
+    Clean up and finish file conversion, work on debugging edge cases.
+    
+Next week: None

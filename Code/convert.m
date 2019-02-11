@@ -4,16 +4,18 @@ function convert(inputFigureFileName)
   
 %create structure and fill it with the coordinates and faces of the figure
 FV = struct;
-[vertices, faces] = extractCoordinates(inputFigureFileName);
+[vertices, faces, vertexNorms, faceNorms] = extractCoordinates(inputFigureFileName);
 FV.vertices = vertices;
 FV.faces = faces;
+FV.vNorms = vertexNorms;
+FV.fNorms = faceNorms;
 
 %   BASED OFF OF KROON ALGORITHM
 % Make a material structure
 material(1).type='newmtl';
 material(1).data='skin';
 material(2).type='Ka';
-material(2).data=[0.8 0.4 0.4];
+material(2).data=[1 1 1];
 material(3).type='Kd';
 material(3).data=[0.8 0.4 0.4];
 material(4).type='Ks';
@@ -26,7 +28,7 @@ material(6).data=27;
 % Make OBJ structure
 clear OBJ
 OBJ.vertices = FV.vertices;
-OBJ.vertices_normal = FV.vertices; %CHANGE BACK TO NORMALS IF CAN
+OBJ.vertices_normal = FV.fNorms; %CHANGE BACK TO NORMALS IF CAN
 OBJ.material = material;
 OBJ.objects(1).type='g';
 OBJ.objects(1).data='skin';

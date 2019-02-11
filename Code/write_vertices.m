@@ -1,5 +1,5 @@
 function write_vertices(fid,V,type)
-switch size(V,2)
+    switch size(V,2)
         case 1
             for i=1:size(V,1)
                 fprintf(fid,'%s %5.5f\n', type, V(i,1));

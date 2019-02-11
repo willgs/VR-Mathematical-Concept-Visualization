@@ -1,0 +1,70 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="767786281" file="C:\Users\ranal\OneDrive\Documents\GUI-Feb11\WeekFeb11.prj" location="C:\Users\ranal\OneDrive\Documents\GUI-Feb11" name="WeekFeb11" target="target.mlapps" target-name="Package App">
+    <param.appname>WeekFeb11</param.appname>
+    <param.authnamewatermark />
+    <param.email />
+    <param.company />
+    <param.icon />
+    <param.icons />
+    <param.summary />
+    <param.description />
+    <param.screenshot>C:\Users\ranal\AppData\Local\Temp\tp8f185f28_7064_4b20_b9c8_612135637c7f.png</param.screenshot>
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>C:\Users\ranal\OneDrive\Documents\GUI-Feb11</param.output>
+    <param.guid>6982c11c-a5c3-4174-91dc-f156b2d4aefd</param.guid>
+    <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.icon />
+      <param.icons />
+      <param.summary />
+      <param.description />
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\GUIFeb11.mlapp</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\convert.m</file>
+      <file>${PROJECT_ROOT}\extractCoordinates.m</file>
+      <file>${PROJECT_ROOT}\write_comment.m</file>
+      <file>${PROJECT_ROOT}\write_MTL_file.m</file>
+      <file>${PROJECT_ROOT}\write_vertices.m</file>
+    </fileset.depfun>
+    <fileset.resources />
+    <fileset.package />
+    <build-deliverables>
+      <file location="C:\Users\ranal\OneDrive\Documents" name="GUI-Feb11" optional="false">C:\Users\ranal\OneDrive\Documents\GUI-Feb11</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2018b</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

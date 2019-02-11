@@ -1,0 +1,12 @@
+Week Of: 11 Feb
+Team Members: Murdock, Ranalli
+
+Progress: GUI now works with central bus by outputting object file to a selected file location. The layout and design of the app
+still need to be tampered with, but the functionality is there.
+
+Slight edits were made to lines 41 and 42 of convert.m to work with GUI - reuploaded as GUI-convert.
+
+All central bus files are packaged together when app is installed with WeekFeb11.mlappinstall
+
+
+Items for team or C/Stephenson: None

@@ -1,0 +1,30 @@
+                                                        Progress Updates
+Week Of: Feb 11th
+Team Members: C/McWherter, C/Guinter, C/Oswald
+Progress: 
+  Connected desktop to internet
+  Installed software to desktop
+    Google Chrome
+    Unity
+    Steam
+    Steam VR
+    Java JDK
+    Visual Studio 2017
+    MatLab 2018b
+    Eclipse
+    Notepad ++
+    VIVEPORT
+  
+  Loaded MatLab conversion code onto desktop an ran with MatLab; Created obj file from fig file.
+  Set up Vive VR headset, with installed software on computer, updated all Firmware (Headset, Controllers, Base Stations)
+  Tested SteamVR with Vive headset
+  Viewed SteamVR home scene in VR
+  Viewed Unity default project scene in VR
+  Viewed MatLab object file created, loaded into unity, with VR.
+  Rearranged POC room, cleaned trash and organized boxes. Placed Vive Equipment inside of desk.
+
+  Set up Samsung and Acer Windows Mixed reality headsets. Have not tested object file 
+
+Items for team or C/Stephenson: (List any questions or things you need moving from the team or from C/Stephenson)
+  When the Object file was loaded, it's resolution in VR was low quality. How does this get fixed?
+  With all of the headsets and controllers plugged in, what is the final call for how the room is going to be set up?

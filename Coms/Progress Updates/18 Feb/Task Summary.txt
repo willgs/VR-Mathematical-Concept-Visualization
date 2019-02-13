@@ -12,7 +12,7 @@ Murdock/Ranalli
     repo (without dashes).  The title and image should be centered, make the title font bigger than the other fonts.
     Have the GUI close after the user presses convert.
 
-Liszka/Oswald 
+Liszka
     Work on debugging file conversion and finding good example cases
     
 Next week: Hoping to demo for Col Bishop next week

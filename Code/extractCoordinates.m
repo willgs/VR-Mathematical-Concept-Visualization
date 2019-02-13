@@ -21,16 +21,16 @@ switch(d.Type)
         for i=1:row
             for j=1:col
                 coordinateMatrix(k,1) = d.XData(i,j);
-                coordinateMatrix(k,2) = d.YData(i,j);
-                coordinateMatrix(k,3) = d.ZData(i,j);
+                coordinateMatrix(k,2) = d.ZData(i,j);
+                coordinateMatrix(k,3) = d.YData(i,j);
                 k=k+1;
             end
         end
         
+        
         %create faces using dlaunay -- fix by trying to extract from fig
         %or using a different function to get it from the coords
         faces = delaunay(d.XData,d.YData);
-        
         
         
         %get vertex and face normals

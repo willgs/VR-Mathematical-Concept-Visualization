@@ -10,7 +10,7 @@ Murdock/Ranalli
     Cosmetic changes to the GUI: Move the convert button to the bottom right, move everything else down enough to put an image and a title
     centered at the top.  use the image in this folder.  Have a title under the image, the title should be the name of this 
     repo (without dashes).  The title and image should be centered, make the title font bigger than the other fonts.
-    Have the GUI close after the user presses convert.
+    Have the GUI close after the user presses convert.  Make the icon that displays in the Matlab App bar also be that image
 
 Liszka
     Work on debugging file conversion and finding good example cases

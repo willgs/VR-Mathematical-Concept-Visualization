@@ -19,55 +19,19 @@ switch(d.Type)
         %check if any of the coordinate matrices have vectors instead of a
         %matrix
         [row,col] = size(X);
-        if row == 1 
-            temp = zeros(col,col);
-            for i=1:col
-                temp(i,:) = X;
-            end 
-            X = temp;
-        end
-        if col == 1
-            temp = zeros(row,row);
-            for i=1:row
-                temp(i,:) = X;
-            end
-            X = temp;
-        end
-        
-        [row,col] = size(Y);
         if row == 1
             temp = zeros(col,col);
             for i=1:col
-                temp(:,i) = Y;
-            end 
-            Y = temp;
-        end
-        if col == 1
-            temp = zeros(row,row);
-            for i=1:row
-                temp(:,i) = Y;
+                temp(i,:) = X;
             end
-            Y = temp;
+        else if col == 1
+            
         end
         
-        [row,col] = size(Z);
-        if row == 1
-            temp = zeros(col,col);
-            for i=1:col
-                temp(i,:) = Z;
-            end 
-            X = temp;
-        end
-        if col == 1
-            temp = zeros(row,row);
-            for i=1:row
-                temp(:,i) = Z;
-            end
-            Z = temp;
-        end
+            
         
         
-        [row,col] = size(X);
+        [row,col] = size(d.XData);
         len = row*col;
         
         coordinateMatrix = zeros(len,3);
@@ -77,9 +41,9 @@ switch(d.Type)
         k = 1;
         for i=1:row
             for j=1:col
-                coordinateMatrix(k,1) = X(i,j);
-                coordinateMatrix(k,2) = Z(i,j);
-                coordinateMatrix(k,3) = Y(i,j);
+                coordinateMatrix(k,1) = d.XData(i,j);
+                coordinateMatrix(k,2) = d.ZData(i,j);
+                coordinateMatrix(k,3) = d.YData(i,j);
                 k=k+1;
             end
         end
@@ -87,7 +51,7 @@ switch(d.Type)
 
         %create faces using dlaunay -- fix by trying to extract from fig
         %or using a different function to get it from the coords
-        faces = delaunay(X,Y);
+        faces = delaunay(d.XData,d.YData);
         
         
         %get vertex and face normals

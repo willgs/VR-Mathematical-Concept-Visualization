@@ -19,13 +19,18 @@ public class Test : MonoBehaviour
         float x2 = 1; //Hard code
         float y2 = (x2 * x) / y;
         float z2 = (x2 * x) / z;
-
-        float Xscale = x2 / x;
-        float Yscale = y2 / y;
-        float Zscale = z2 / z;
-
-        transform.localScale = new Vector3((x * Xscale)/10, (y * Yscale)/10, (z * Zscale)/10);
-        transform.position = new Vector3(-0.542f, 1.68f, -2.075f);
+        
+        var mesh = this.GetComponent<MeshFilter>().mesh;
+        var verts = mesh.vertices;
+        for (int i = 0; i < verts.Length; i++) 
+        {
+            var v = verts[i];
+            verts[i] = new Vector3((v.x * x2), (v.y * y2), (v.z * z2));
+        }
+        mesh.vertices = verts;
+        transform.localScale = transform.localScale/15;
+        this.GetComponentInParent<Transform>().position = new Vector3(0,0,0);
+        transform.position = new Vector3(0.49f, 0.72f, 0.509f);
 
         Material[] mats = { mat };
         rend.materials = mats;

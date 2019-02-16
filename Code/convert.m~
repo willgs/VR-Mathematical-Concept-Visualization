@@ -10,6 +10,9 @@ FV.faces = faces;
 FV.vNorms = vertexNorms;
 FV.fNorms = faceNorms;
 
+%create struct with high and low values for each axis coordinate
+extremes = getExtremes(vertices);
+
 %   BASED OFF OF KROON ALGORITHM
 
 %  This MTL commented out code is for the future, if the next individual
@@ -48,11 +51,6 @@ if(exist('fullfilename','var')==0)
     fullfilename = [filefolder filename];
 end
 [filefolder,filename] = fileparts( fullfilename);
-
-%create struct with high and low values for each axis coordinate
-extremes = getExtremes(vertices);
-write_JSON_file(extremes,filefolder,filename);
-
 comments=cell(1,4);
 comments{1}=' Produced by Matlab Write Wobj exporter ';
 comments{2}='';

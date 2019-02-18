@@ -60,8 +60,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _First: 0.9
-    - _Fourth: -1
+    - _First: 1.9
+    - _Fourth: -3.1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -71,20 +71,20 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Second: 0.5
+    - _Second: 1.6
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Third: -0.1
+    - _Third: -0.7
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _BaseColour: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FifthC: {r: 0.022058845, g: 0.3282959, b: 0.75, a: 1}
-    - _FirstC: {r: 1, g: 0.50420165, b: 0, a: 1}
-    - _FourthC: {r: 0.12927197, g: 0.7830189, b: 0.7830189, a: 1}
+    - _FifthC: {r: 0.15018693, g: 0.34426194, b: 0.7075472, a: 1}
+    - _FirstC: {r: 1, g: 1, b: 1, a: 1}
+    - _FourthC: {r: 0.18823424, g: 0.69686717, b: 0.8490566, a: 1}
     - _GridColour: {r: 0, g: 0, b: 0, a: 1}
-    - _SecondC: {r: 0.93333334, g: 0.7876948, b: 0, a: 1}
-    - _ThirdC: {r: 0.80818826, g: 0.8207547, b: 0.43747774, a: 1}
+    - _SecondC: {r: 0.9607843, g: 0.76775134, b: 0.43921566, a: 1}
+    - _ThirdC: {r: 0.8396226, g: 0.8098746, b: 0.31287822, a: 1}

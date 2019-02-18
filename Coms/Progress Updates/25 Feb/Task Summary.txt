@@ -1,0 +1,21 @@
+Last week: None
+
+McWherter/Guinter
+
+  -Good job, stand by in case we want the room cleaned up
+
+Oswald
+    
+    Go through and move anything not needed in the final product to a folder called "development" put it in code
+
+Kozak
+    Follow up with the pitt news
+
+Murdock/Ranalli
+    Trouble loading the GUI, no mlappinstall file?  -Murdock, exmaple cases
+
+Liszka
+  
+  Change format to CSV, help Oswald clean up
+    
+Next week: Demo for all of cadre on Mon, 4 March.  Demo for Col Bongiovi on 5 March.

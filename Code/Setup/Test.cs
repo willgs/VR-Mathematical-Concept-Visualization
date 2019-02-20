@@ -8,15 +8,14 @@ public class Test : MonoBehaviour
 {
     void Start()
     {
-      
-        Material mat = (Material)AssetDatabase.LoadAssetAtPath("Assets/Setup/ColourByHeight.mat", typeof(Material));
-
-        var scaleData = LoadCSV();
-
+        var scaleData = LoadCSV();  
         scaleVerts(scaleData);
+
         var rend = GetComponent<Renderer>();
+        Material mat = (Material)AssetDatabase.LoadAssetAtPath("Assets/Setup/ColourByHeight.mat", typeof(Material));
         Material[] mats = { mat };
         rend.materials = mats;
+
         position();
         lower();
     }
@@ -113,7 +112,6 @@ public class Test : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y - diff, transform.position.z);
     }
 }
-
 
 public class scales
 {

@@ -18,6 +18,7 @@ public class Test : MonoBehaviour
         Material[] mats = { mat };
         rend.materials = mats;
         position();
+        lower();
     }
 
     public scales LoadCSV()
@@ -64,46 +65,7 @@ public class Test : MonoBehaviour
             var v = verts[i];
             verts[i] = new Vector3((v.x * x2), (v.y * y2), (v.z * z2));
         }
-        Vector3 YminV = new Vector3(0, float.PositiveInfinity, 0);
-        Vector3 YmaxV = new Vector3(0, float.NegativeInfinity, 0);
-        Vector3 XminV = new Vector3(float.PositiveInfinity, 0, 0);
-        Vector3 XmaxV = new Vector3(float.NegativeInfinity, 0, 0);
-        Vector3 ZminV = new Vector3(0, 0, float.PositiveInfinity);
-        Vector3 ZmaxV = new Vector3(0, 0, float.NegativeInfinity);
 
-        for (int i = 0; i < verts.Length; i++)
-        {
-            var v = verts[i];
-            Vector3 vert = transform.TransformPoint(verts[i]);
-            if (vert.x > XmaxV.x)
-            {
-                XmaxV = vert;
-            } else if(vert.x < XminV.x)
-            {
-                XminV = vert;
-            }
-            if (vert.y > YminV.y)
-            {
-                YmaxV = vert;
-            } else if (vert.y < YminV.y)
-            {
-                YminV = vert;
-            }
-            if (vert.z > ZmaxV.z)
-            {
-                ZmaxV = vert;
-            } else if (vert.z < ZminV.z)
-            {
-                ZminV = vert;
-            }
-        }
-        var XCenter = (XmaxV.x - XminV.x)/2;
-        var YCenter = (YmaxV.y - YmaxV.y)/2;
-        var ZCenter = (ZmaxV.z - ZmaxV.z)/2;
-        this.GetComponent<Renderer>().bounds.SetMinMax(new Vector3(XmaxV.x, YmaxV.y, ZmaxV.z), new Vector3(XminV.x, YminV.y, ZminV.z));
-        
-        //= new Vector3(XCenter, YCenter, ZCenter);
-        Debug.Log(XmaxV +" \n" + XminV + " \n" + YmaxV + " \n" + YminV + " \n" + ZmaxV + " \n" + ZminV);
         mesh.vertices = verts;
     }
 
@@ -126,14 +88,33 @@ public class Test : MonoBehaviour
             transform.localScale = transform.localScale / 1.01f;
             figBounds = GetComponent<Renderer>().bounds.extents;
 
-        } while (cubeBounds.x < figBounds.x || cubeBounds.y < figBounds.y || cubeBounds.z < figBounds.z);
-       //do
-        //{
-        //    transform.position = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
-        //} while (!GetComponent<Renderer>().bounds.Intersects(GameObject.Find("bench_top").GetComponent<Renderer>().bounds));
+        } while (cubeBounds.x < figBounds.x || cubeBounds.z < figBounds.z); //Ignore the y value, scaling causes bounds.y issues, deal with it in lower()
+
         return;
     }
+
+    public void lower()
+    {
+        Vector3 YminV = new Vector3(0, float.PositiveInfinity, 0);
+        var mesh = GetComponent<MeshFilter>().mesh;
+        var verts = mesh.vertices;
+        for (int i = 0; i < verts.Length; i++)
+        {
+            var v = verts[i];
+            Vector3 vert = transform.TransformPoint(verts[i]);
+            if (vert.y < YminV.y)
+            {
+                YminV = vert;
+            }
+
+        }
+        var sphere = GameObject.Find("Sphere");
+        var diff = YminV.y - sphere.transform.position.y;
+        transform.position = new Vector3(transform.position.x, transform.position.y - diff, transform.position.z);
+    }
 }
+
+
 public class scales
 {
     public float xHigh;

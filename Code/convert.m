@@ -51,7 +51,7 @@ end
 
 %create struct with high and low values for each axis coordinate
 extremes = getExtremes(vertices);
-write_JSON_file(extremes,filefolder,filename);
+write_CSV(extremes,filefolder,filename);
 
 comments=cell(1,4);
 comments{1}=' Produced by Matlab Write Wobj exporter ';

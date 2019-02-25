@@ -4,20 +4,16 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public class View_Adjust : MonoBehaviour
 {
+    public float yscale;
     void Start()
     {
         var scaleData = LoadCSV();  
         scaleVerts(scaleData);
-
-        var rend = GetComponent<Renderer>();
-        Material mat = (Material)AssetDatabase.LoadAssetAtPath("Assets/Setup/ColourByHeight.mat", typeof(Material));
-        Material[] mats = { mat };
-        rend.materials = mats;
-
         position();
         lower();
+        color();
     }
 
     public scales LoadCSV()
@@ -32,6 +28,7 @@ public class Test : MonoBehaviour
             List<float> scaleFloat = new List<float>();
             foreach (var d in scaleString)
             {
+                Convert.ToDouble(d);
                 scaleFloat.Add((float)Convert.ToDouble(d));
             }
             return new scales
@@ -56,7 +53,8 @@ public class Test : MonoBehaviour
         float x2 = 1; //Hard code
         float y2 = (x2 * x) / y;
         float z2 = (x2 * x) / z;
-
+        yscale = y2 * y;
+        Debug.Log("y " + y + " y2 " + y2 + " = " + y * y2);
         var verts = mesh.vertices;
 
         for (int i = 0; i < verts.Length; i++)
@@ -110,6 +108,44 @@ public class Test : MonoBehaviour
         var sphere = GameObject.Find("Sphere");
         var diff = YminV.y - sphere.transform.position.y;
         transform.position = new Vector3(transform.position.x, transform.position.y - diff, transform.position.z);
+    }
+
+    public void color()
+    {
+        Vector3 YminV = new Vector3(0, float.PositiveInfinity, 0);
+        Vector3 YmaxV = new Vector3(0, float.NegativeInfinity, 0);
+        var mesh = GetComponent<MeshFilter>().mesh;
+        var verts = mesh.vertices;
+        for (int i = 0; i < verts.Length; i++)
+        {
+            var v = verts[i];
+            Vector3 vert = transform.TransformPoint(verts[i]);
+            if (vert.y < YminV.y)
+            {
+                YminV = vert;
+            } else if(vert.y > YmaxV.y)
+            {
+                YmaxV = vert;
+            }
+
+        }
+        var diff = YmaxV.y - YminV.y;
+        Debug.Log(YmaxV.y + " and " + YminV.y + " equal " +diff );
+
+        var matHeights = new float[4];
+        matHeights[0] = yscale / 3.278f;
+        matHeights[1] = matHeights[0] / 1.187f;
+        matHeights[2] = matHeights[1] / -2.286f;
+        matHeights[3] = matHeights[2] / 0.225f;
+
+        var rend = GetComponent<Renderer>();
+        Material mat = (Material)AssetDatabase.LoadAssetAtPath("Assets/Setup/ColourByHeight.mat", typeof(Material));
+        mat.SetFloat("_First", matHeights[0]);
+        mat.SetFloat("_Second", matHeights[1]);
+        mat.SetFloat("_Third", matHeights[2]);
+        mat.SetFloat("_Fourth", matHeights[3]);
+        Material[] mats = { mat };
+        rend.materials = mats;
     }
 }
 

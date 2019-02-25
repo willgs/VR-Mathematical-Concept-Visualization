@@ -22,9 +22,10 @@ public class View_Adjust : MonoBehaviour
 
         using (var reader = new StreamReader("Assets/Setup/" + name))
         {
-
+            reader.ReadLine();
             var line = reader.ReadLine();
             var scaleString = line.Split(',');
+            Array.Resize(ref scaleString,scaleString.Length -1);
             List<float> scaleFloat = new List<float>();
             foreach (var d in scaleString)
             {

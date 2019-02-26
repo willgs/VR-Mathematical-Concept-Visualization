@@ -1,0 +1,7 @@
+These are the instructions for how to change between the Windows Mixed Reality, and Vive Pro
+headsets in Unity.
+
+1. Go to file-> Build Settings
+2. Under Platform to change to the Windows Mixed Reality headsets select Universal Windows Platform; to change to the Vive Pro, change to 
+  "PC, Mac & Linux Standalone".
+3. 

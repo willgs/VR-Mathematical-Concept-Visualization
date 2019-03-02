@@ -1,0 +1,10 @@
+1) Equation for the electric field created by a point charge: E = (kQ)/(r^2)
+   If we plug in a proton for the charge, the electric field around the proton in the z=0 plane can be visualized by: z = (1.46*10^(-9))/(x^2+y^2)
+   Note: You will likely need to scale the z axis so that the displayed equation is not super small
+   
+2) Fun looking equation: z = sin(sqrt(x^(2)+y^(2)))
+
+3) Equation for magnetic flux in a toroid: L = (u0 * N^2 * h * ln(r1/r2)) / (2*pi), where u0 = 4pi*10^-7, N = # of turns, h = height of the coils,
+                                                                                          r1 = inner radius, r2 = outer radius)
+   So for a toroid with N = 100, h = .1, r1 = x, r2 = y, L = 2*ln(x/y)
+   That means z = 2 * ln(x/y) = the inductance of a soleniod with x inner radius and y outer radius

@@ -141,7 +141,11 @@ switch(d.Type)
         
         
     case 'line'
-        
+        coordinateMatrix = -1;
+        faces = 0;
+        vertexNormal = 0;
+        faceNormal = 0;
+        return;
 
 
 end

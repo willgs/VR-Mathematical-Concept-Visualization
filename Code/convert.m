@@ -1,10 +1,17 @@
-function convert(inputFigureFileName)
+function convert(inputFigureFileName,endLocation)
 %This function will be the parent converter, utilizing other functions and
 %   its own algorithms to convert a figure file to an object file
   
 %create structure and fill it with the coordinates and faces of the figure
 FV = struct;
 [vertices, faces, vertexNorms, faceNorms] = extractCoordinates(inputFigureFileName);
+
+% check if there were any problems
+if vertices == -1
+    warndlg('Figure is not 3-dimensional','Error');
+    return;
+end
+
 FV.vertices = vertices;
 FV.faces = faces;
 FV.vNorms = vertexNorms;
@@ -42,19 +49,20 @@ OBJ.objects(3).type='f';
 OBJ.objects(3).data.vertices=FV.faces;
 OBJ.objects(3).data.normal=FV.faces;
 
-
-if(exist('fullfilename','var')==0)
-    [filename, filefolder] = uiputfile('*.obj', 'Write obj-file');
-    fullfilename = [filefolder filename];
-end
-[filefolder,filename] = fileparts( fullfilename);
+%       TO BE USED WHEN CALLING FROM COMMAND LINE
+% if(exist('fullfilename','var')==0)
+%     [filename, filefolder] = uiputfile('*.obj', 'Write obj-file');
+%     fullfilename = [filefolder filename];
+% end
+[filefolder,filename] = fileparts(endLocation);
+fullfilename = endLocation;
 
 %create struct with high and low values for each axis coordinate
 extremes = getExtremes(vertices);
 write_CSV(extremes,filefolder,filename);
 
 comments=cell(1,4);
-comments{1}=' Produced by Matlab Write Wobj exporter ';
+comments{1}=' Produced through Matlab Write Wobj exporter and Det 730 Cyber Research Team';
 comments{2}='';
 fid = fopen(fullfilename,'w');
 
